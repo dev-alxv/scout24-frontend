@@ -1,0 +1,31 @@
+@import "~@angular/material/theming";
+
+$primary-color: #00ffd0;
+$accent-color: #2267e8;
+$basic-color: white;
+$black-color: black;
+
+$primary: (
+  A100: #d8fff4,
+  A200: #9cffe3,
+  A400: #00ffd0,
+  A700: #00ffd0,
+  contrast: (
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+$accent: (
+  A100: #009dff,
+  A200: #0d8eff,
+  A400: #2267e8,
+  A700: #164aba,
+  contrast: (
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $light-primary-text,
+  ),
+);

@@ -1,0 +1,32 @@
+
+<div class="wrapper-expose">
+  <div class="wrapper-image-expose">
+      <div class="inner-wrapper-image-expose">
+          <!-- <img *ngIf=" expose.image" class="play-button circle" src="assets/img/play_icon_circle.png" alt="">
+          <img *ngIf=" expose.image" class="play-button" src="assets/img/play_icon_circle_icon.png" alt=""> -->
+          <img *ngIf="expose.image" class="img-expose" [src]=" expose.image.urlPath" alt="">
+          <img *ngIf="!expose.image" class="img-expose-default" [src]="defaultImage" alt="">
+      </div>
+  </div>
+  <div class="wrapper-info flex-1">
+      <p class="mat-body-1 expose-headline-one">{{'scout24.Main.TourListItem.InternalId' | translate}}: {{expose.ids.objectID}}</p>
+      <p class="mat-h2 expose-headline-one">      {{ (expose.title .length>60) ? (expose.title  | slice:0:60)+' ...': (expose.title ) }}</p>
+
+      <div class="wrapper-adress">
+        <i   class="material-icons material-icons-outlined icon-expose-marker">room</i>
+         <p class="mat-body-1 expose-headline-two"> {{expose.shortStreetAddress}}</p>
+      </div>
+  </div>
+  <div class="wrapper-linking-expose" *ngIf="expose.isLinkedToTour">
+    <button mat-raised-button class="raised-button-small-update-expose " disableRipple disabled>
+      <i class="material-icons material-icons-outlined connect-icon">insert_link</i>
+      {{'scout24.Main.Expose.ExposeLinked' | translate}}
+    </button>
+  </div>
+  <div *ngIf=" !expose.isLinkedToTour">
+    <button mat-raised-button class="raised-button-big-black-update " (click)="linkExposeToTour()" disableRipple >
+      <i class="material-icons marker-icon connect-icon">insert_link</i>
+      {{'scout24.Main.TourListItem.LinkExpose' | translate}}
+    </button>
+  </div>
+</div>

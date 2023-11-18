@@ -1,0 +1,100 @@
+ .picture-2D, .picture-3D{
+  width: 200px;
+  height: 200px;
+}
+
+.overlay-2D {
+  position: absolute;
+  top: 99%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+}
+
+.text-subinfo-big{
+margin-top: 10px;
+margin-bottom: 0px;
+
+}
+
+.text-subinfo-small{
+  margin: 0 0 0 0;
+  opacity: 0.5;
+
+}
+
+.dollhouse-link:link, :visited  {
+  text-decoration: none;
+  color: #007DAF;
+}
+
+.check-icon{
+font-size: 18px;
+color: #00ffd0;
+font-weight: bolder;
+margin-top: 8px;
+}
+
+.text-info-2D{
+  min-height: 84px;
+  margin-bottom: 0px;
+}
+.img-wrapper {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 15px;
+  position: relative;
+  max-height: 130px;
+}
+
+.price-wrapper {
+  position: relative;
+}
+
+.choose-button{
+  width: 140px;
+  height: 36px;
+}
+
+.price-wrapper-2D{
+  position: absolute;
+  left: 15%;
+  transform: translate(-50%, 50%);
+}
+
+.price-layer-2D{
+  position: absolute;
+  left: 15%;
+  transform: translate(-50%, -25%);
+  width: 100px;
+}
+
+.price-wrapper-3D{
+  position: absolute;
+  top: 82%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+}
+
+.price-layer-3D{
+  position: absolute;
+  top: 82%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+}
+
+.price-wrapper-subtext {
+font-size: 8px;
+margin: 45px 0 0 5px;
+}
+
+.more-infos-button{
+  line-height: 20px;
+}
+
+
+
+

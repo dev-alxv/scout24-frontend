@@ -1,0 +1,102 @@
+.preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #cccccc;
+    margin-right: 15px;
+    width: 260px;
+    position: relative;
+    cursor: pointer;
+    height: 200px;
+    overflow: hidden;
+  
+    .play-button {
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  
+    .dollhous-icon{
+      width: 65px;
+      z-index: 1;
+      position: absolute;
+      top: 25%;
+      left: 75%;
+      transform: translate(-25%, -90%);
+    }
+  }
+  
+  .img-wrapper {
+    height: 100%;
+    position: absolute;
+    left: -25%;
+  }
+  
+  .wrapper-tli {
+    background-color: white;
+    min-height: 200px;
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 15px;
+  }
+  
+  .circle {
+    opacity: 0.5;
+  }
+  
+  .wrapper-tli-picture {
+    min-width: 260px;
+    max-width: 260px;
+  }
+  
+  .wrapper-tli-infos {
+    margin-right: 35px;
+  }
+  
+  @media screen and (max-width: 1279px) {
+    .wrapper-tli-infos {
+      margin-right: 10px;
+    }
+  }
+  
+  .option-button-tli {
+    width: 100%;
+    min-width: 170px;
+  }
+  
+  .control-button-tli {
+    background-color: white;
+    border: 0px;
+  }
+  
+  .control-button-tli:hover {
+    cursor: pointer;
+  }
+  
+  .stlye-for-chrome{
+    color: black;
+  }
+  
+  .control-button-tli-link:link,
+  :visited,
+  :hover,
+  :active,
+  :focus-visible {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+  }
+  
+  .connect-icon {
+    transform: rotate(135deg);
+  }
+  
+  .fp-in-order-span {
+    width: 100%;
+  }
+  
+  .info-icon {
+    vertical-align: bottom;
+  }

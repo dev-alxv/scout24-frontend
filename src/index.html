@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <title>ImmobilienScout24</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    rel="stylesheet">
+
+  <!-- FS -->
+  <script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.8.5/fastspring-builder.min.js" type="text/javascript"
+    data-popup-closed="onFSPopupClosed" data-storefront="immoviewereu.test.onfastspring.com/popup-scout24" data-access-key="YHGWVE1FSLGX4JSG4-0IHA"></script>
+
+  <!-- COSMA CSS -->
+  <link rel="stylesheet" href="https://www.static-immobilienscout24.de/fro/core/4.11.2/css/core.min.css" />
+</head>
+
+<body class="mat-app-background scout-24-app">
+  <app-root></app-root>
+
+  <script>
+    function onFSPopupClosed(orderReference) {
+      // if order is successful
+      if (orderReference) {
+        window.dispatchEvent(new CustomEvent('order-complete', {
+          detail: {
+            orderCompleted: true
+          },
+          bubbles: false,
+          composed: true
+        }));
+      }
+    }
+  </script>
+</body>
+
+</html>

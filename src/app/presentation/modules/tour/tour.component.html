@@ -1,0 +1,47 @@
+<div class="container-color-safari">
+  <div class="mt-10 mb-5 back-button">
+    <a [href]="scoutURL" target="_self">
+      <button mat-button color="accent" disableRipple class="basic-button ">
+        <i class="material-icons ">chevron_left</i>
+        {{'scout24.Header.Back' | translate}}
+      </button>
+    </a>
+  </div>
+
+  <ng-container *ngIf="totalItems !== undefined">
+
+    <div class="mb-30 tour-number">
+      <h1 class="mat-h1">
+        {{ totalItems }} {{'scout24.Main.Tour.FoundTours' | translate}}
+      </h1>
+    </div>
+
+  </ng-container>
+
+  <ng-container *ngIf="tourList.length">
+
+    <ng-container *ngFor="let tour of tourList | paginate:
+    { id: 'tourList', itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalItems }; trackBy: toursTrackFn">
+
+      <scout24-tour-list-item [tour]="tour" (linkTourEvent)="linkTour($event)" (unlinkTourEvent)="unlinkTour($event)" (deleteTourEvent)="deleteTour($event)"
+        (closeModalEvent)="closeWaitingResponseModalEvent($event)" (approveTourFloorplanOrderEvent)="approveTourFloorplanOrder($event)"
+        (declineTourFloorplanOrderEvent)="declineTourFloorplanOrder($event)">
+      </scout24-tour-list-item>
+
+    </ng-container>
+    <div>
+      <pagination-controls (pageChange)="fetchPage($event)" class="list-pagination" id="tourList" previousLabel="" nextLabel=""></pagination-controls>
+    </div>
+
+
+  </ng-container>
+
+
+  <ng-container *ngIf="(uiStateStream$ | async) as uiState">
+
+    <scout24-container-spinner [loading]="uiState.uiOngoingActions.apiRequest.fetchingTourListPageSlice" [backgroundColor]="'rgba(242, 242, 242, 0.8)'"
+      [positionTop]="true"></scout24-container-spinner>
+
+  </ng-container>
+
+</div>

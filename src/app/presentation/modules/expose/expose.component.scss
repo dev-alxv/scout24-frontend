@@ -1,0 +1,23 @@
+.spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.68);
+}
+
+.wrapper-expose-controls{
+  height: 40px;
+ margin-top: 40px;
+}
+
+.wrapper-paginator-expose{
+  margin-left: 19%;
+}
+
+

@@ -1,0 +1,30 @@
+<div class="wrapper">
+
+  <div class="spinner">
+    <scout24-container-spinner [transparentBackground]="true" [diameter]="'46'" [strokeWidth]="'6'" [loading]="loading" [noAnimation]="true">
+    </scout24-container-spinner>
+
+    <ng-container *ngIf="done">
+      <i class="material-icons-outlined">check_circle</i>
+    </ng-container>
+  </div>
+
+  <div class="text-wrapper">
+    <ng-container *ngIf="message && !uiStateReceived">
+      <h2 class="mat-h2">
+        {{ message }}
+      </h2>
+    </ng-container>
+
+    <ng-container *ngIf="message && uiStateReceived">
+      <h2 class="mat-h2">
+        <ng-container *ngIf="type === 'link-tour'">{{'scout24.Main.TourListItem.ExposeProccessFeedbackLinked' | translate}}</ng-container>
+        <ng-container *ngIf="type === 'unlink-tour'">{{'scout24.Main.TourListItem.ExposeProccessFeedbackUnlinked' | translate}}</ng-container>
+        <ng-container *ngIf="type === 'delete-tour'">{{'Tour.SuccessDelete' | translate}}</ng-container>
+        <ng-container *ngIf="type === 'approveFloorplan'">{{ 'scout24.Main.TourListItem.FloorPlanProcessFeedbackApproved' | translate }}</ng-container>
+        <ng-container *ngIf="type === 'approveDollhouse'">{{ 'scout24.Main.TourListItem.DollhouseProcessFeedbackApproved' | translate }}</ng-container>
+      </h2>
+    </ng-container>
+  </div>
+
+</div>

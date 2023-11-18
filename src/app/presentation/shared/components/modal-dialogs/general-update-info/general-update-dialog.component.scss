@@ -1,0 +1,74 @@
+
+.custom-headline{
+  font: 500 26px/26px Make It Sans IS24 Web, Verdana, DejaVu Sans , Arial ,Helvetica , sans-serif;
+  letter-spacing: normal;
+  margin: 0 0 16px;
+  text-align: center;
+  line-height: 36px;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.custom-text{
+
+  padding: 0 40px;
+  font: 500 16px/26px Make It Sans IS24 Web, Verdana, DejaVu Sans , Arial ,Helvetica , sans-serif;
+  letter-spacing: normal;
+  margin: 0 0 16px;
+  text-align: center;
+  line-height: 24px;
+}
+
+.wrapper-update{
+  margin: 0px 30px;
+}
+
+.wrapper-img{
+  width: 400px;
+}
+
+.img-update{
+  width: 100%;
+}
+
+.dissmiss-container{
+  position: relative;
+  margin-top: 40px;
+}
+
+.dissmiss-info{
+  position: absolute;
+  transform: translate(0%, 307%);
+}
+
+.wrapper-circle{
+  position: relative;
+}
+
+.img-circle{
+  position: absolute;
+  transform: translate(132%, -10%);
+}
+
+.img-priority-line{
+  position: absolute;
+  transform: translate(20%, 900%);
+  left: 70%;
+}
+
+.img-arrow{
+  position: absolute;
+  transform: translate(20%, 450%);
+  left: 66%;
+}
+
+.wrapper-rectangle{
+  position: relative;
+}
+
+.img-rectangle{
+  position: absolute;
+  transform: translate(20%, -262%);
+  left: 17%;
+}
+

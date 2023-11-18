@@ -1,0 +1,27 @@
+<div fxLayout="column">
+
+  <ng-container *ngFor="let expose of exposeList | paginate:
+    { id: 'exposeList', itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalItems }; trackBy: exposesTrackFn">
+
+    <scout24-expose-list-item [expose]="expose" (linkExposeEvent)="linkExpose($event)"></scout24-expose-list-item>
+
+  </ng-container>
+
+  <div fxLayout="row" fxFlex="1 1 auto" class="wrapper-expose-controls">
+    <!-- <div fxFlex="50"> -->
+    <button mat-raised-button class="raised-button-big" disableRipple (click)="closeExpose()">
+      {{'scout24.Action.Cancel' | translate}}
+    </button>
+    <!-- </div> -->
+    <div class="wrapper-paginator-expose">
+      <pagination-controls class="list-pagination" (pageChange)="fetchPage($event)" id="exposeList" previousLabel="" nextLabel=""></pagination-controls>
+    </div>
+  </div>
+
+  <ng-container *ngIf="(uiStateStream$ | async) as uiState">
+
+    <scout24-container-spinner [loading]="uiState.uiOngoingActions.apiRequest?.fetchingExposeListPageSlice"></scout24-container-spinner>
+
+  </ng-container>
+
+</div>

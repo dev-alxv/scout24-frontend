@@ -1,0 +1,15 @@
+<div fxLayout="column">
+  <div fxLayout="column" fxFlex="1 1 auto">
+    <div class="wrapper-iframe-tour mt-10 mb-30">
+      <iframe height="100%" width="100%" [src]="reviewPlayerURL" title="Florplan Review"></iframe>
+    </div>
+    <h3 class="mat-h2 ">
+      {{'scout24.Main.Modal.CheckFloorPlanForCorrection' | translate}}
+    </h3>
+    <h4 class="mat-h4 text-info-2D mb-10 mt-10 ">
+      {{'scout24.Main.Modal.CorrectionWhishes' | translate}}
+    </h4>
+  </div>
+</div>
+
+<scout24-container-spinner [loading]="approveDeclineInProgress"></scout24-container-spinner>

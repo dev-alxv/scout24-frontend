@@ -1,0 +1,30 @@
+<div fxLayout="column">
+  <div fxLayout="column" fxFlex="1 1 auto">
+
+    <h3 class="mat-h4 mt-30">
+      {{'scout24.Main.Modal.DefineCorrection' | translate}}
+    </h3>
+    <div class="wrapper-form mt-10 ">
+      <mat-form-field class="form-input-correction" appearance="fill">
+        <textarea matInput [(ngModel)]="feedbackInput"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxFlex="100" class="mt-30">
+      <div fxFlex="50" fxLayout="row">
+        <button mat-raised-button class="raised-button-big" disableRipple (click)="closeModal()">
+          {{'scout24.Action.Cancel' | translate}}
+        </button>
+      </div>
+      <div fxFlex="50" fxLayout="row-reverse">
+        <div class="ml-20">
+          <button mat-flat-button color="primary" class="flat-button-big-update" disableRipple (click)="sendFeedback()">
+            {{ 'scout24.Action.ConfirmCorrection' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<scout24-container-spinner [loading]="approveDeclineInProgress"></scout24-container-spinner>

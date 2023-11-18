@@ -1,0 +1,49 @@
+<div class="wrapper-tli mr-5" fxLayout="row">
+    <div class="wrapper-tli-picture">
+      <div class="preview" (click)="openTourPlayer()">
+        <img *ngIf="tour.floorPlans?.status !== 'APPROVED' && tour.floorPlans?.dollhouseOrdered" class="dollhous-icon"
+          src="assets/img/floorplan_progress_icon.svg" alt="">
+        <img *ngIf="tour.floorPlans?.status === 'APPROVED' && tour.floorPlans?.dollhouseOrdered" class="dollhous-icon" src="assets/img/floorplan_done_icon.svg"
+          alt="">
+        <img *ngIf="tour.mainImagePaths.hd1080" class="play-button circle" src="assets/img/play_icon_circle.png" alt="">
+        <img *ngIf="tour.mainImagePaths.hd1080" class="play-button" src="assets/img/play_icon_circle_icon.png" alt="">
+        <img class="img-wrapper" [src]="tour.mainImagePaths.hd1080 || defaultImage" alt="">
+      </div>
+    </div>
+    <div fxLayout="row" fxFlex="1 1 auto">
+      <div class="wrapper-tli-infos ml-10" fxFlex="75">
+        <h2 class="mat-h2">
+          {{ (tour.name .length>60) ? (tour.name | slice:0:60)+' ...': (tour.name ) }}
+        </h2>
+        <p class="mat-body-1 ma-top-bottom-p">
+          {{'scout24.Main.TourListItem.InternalId' | translate}}: {{ tour.ids.internal }}
+        </p>
+        <p class="mat-body-1 ma-top-bottom-p">
+          {{'scout24.Main.TourListItem.Created' | translate}}: {{ tour.createdDate }}
+        </p>
+        <p *ngIf="tour.ids.external" class="mat-body-1 ma-top-bottom-p">
+          {{'scout24.Main.TourListItem.ExposeId' | translate}}:
+          {{ tour.ids.external }}
+        </p>
+        <div class="mt-20">
+          <button *ngIf="!tour.ids.external" mat-raised-button class="raised-button-big-black" disableRipple (click)="linkTourConfirm()">
+            <i class="material-icons connect-icon">insert_link</i>
+            {{'scout24.Main.LinkTourListItem.LinkExpose' | translate}}
+          </button>
+          <button *ngIf="tour.ids.external" mat-button color="accent" disableRipple class="basic-button" (click)="unlinkTourConfirm()">
+            <i class="material-icons marker-icon connect-icon">link_off</i>
+            {{'scout24.Main.LinkTourListItem.LinkExposeDelete' | translate}}
+          </button>
+          <p *ngIf="tour.ids.external && this.internalID != this.tour.ids.internal" class="mat-body-1 ma-top-bottom-p">
+            <i class="material-icons info-icon">info</i>
+            {{'scout24.Main.LinkTourListItem.LinkTour.Hint' | translate }}
+          </p>
+        </div>
+      </div>
+  
+      <div class="wrapper-tli-controls " fxFlex="35" fxLayout="column">
+      </div>
+    </div>
+  
+  </div>
+  

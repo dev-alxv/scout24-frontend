@@ -1,0 +1,78 @@
+.wrapper-layout {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #F2F2F2;
+}
+
+.wrapper-content {
+  min-width: fit-content !important;
+  max-width: 1400px !important;
+  margin: auto;
+  flex: 1;
+}
+
+.placeholder {
+  background-color: grey;
+}
+
+.main {
+  position: relative;
+  max-width: 980px;
+  flex: auto;
+}
+
+@media screen and (max-width: 4000px) {
+  .main {
+    margin-top: 65px;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .main {
+    margin-top: 0px;
+
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .main {
+    margin-top: 0px;
+  }
+}
+
+.side {
+  max-width: 400px;
+  margin-top: 170px;
+  margin-right: 5px;
+  margin-left: 25px;
+  background-color:  #F2F2F2;
+}
+
+@media screen and (max-width: 1423px) {
+  .side {
+    margin-right: 28px;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .side {
+    margin-top: 65px;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .side {
+    margin-top: 65px;
+  }
+}
+
+.header {
+  position: fixed;
+top: 0;
+width: 100%;
+background: white;
+z-index: 100;
+}

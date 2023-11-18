@@ -1,0 +1,172 @@
+<div fxLayout="column">
+
+  <ng-container *ngIf="!floorplanOrdered">
+    <h4 class="mat-h4 mb-10 ">
+      {{'scout24.Main.Modal.InfoCooperation' | translate}}
+    </h4>
+    <div fxLayout="row" fxFlex="1 1 auto">
+      <div class="img-wrapper">
+        <img class="picture-2D" src="assets/img/order_dialog__floor plan.png" alt="">
+      </div>
+      <div fxFlex="1 1 auto" class="ml-20">
+        <h3 class="mat-h2 ">
+          {{'scout24.Main.Modal.HeadlinePayment2D' | translate}}
+        </h3>
+        <h4 class="mat-h4 text-info-2D mb-10 ">
+          {{'scout24.Main.Modal.InfoTextPayment2D' | translate}}
+
+          <!-- <button mat-button color="accent" disableRipple class="basic-button  more-infos-button">
+            <i class="material-icons marker-icon ">chevron_right</i>
+            {{'scout24.Side.LogoLearnMore' | translate}}
+          </button> -->
+        </h4>
+
+        <div fxLayout="row">
+          <i class="material-icons check-icon">done</i>
+          <div fxLayout="column" class="ml-5">
+            <p class="mat-body-1 text-subinfo-big">
+              {{'scout24.Main.Modal.SubInfo.Done' | translate}}
+            </p>
+            <p class="mat-body-1 text-subinfo-small">
+              {{'scout24.Main.Modal.SubInfo.Email' | translate}}
+            </p>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <i class="material-icons check-icon">done</i>
+          <div fxLayout="column" class="ml-5">
+            <p class="mat-body-1 text-subinfo-big">
+              {{'scout24.Main.Modal.SubInfo.Integration' | translate}}
+            </p>
+            <p class="mat-body-1 text-subinfo-small">
+              {{'scout24.Main.Modal.SubInfo.ConfirmFloorplan' | translate}}
+            </p>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <i class="material-icons check-icon">done</i>
+          <div fxLayout="column" class="ml-5">
+            <p class="mat-body-1 text-subinfo-big">
+              {{'scout24.Main.Modal.SubInfo.DownloadAsPicture' | translate}}
+            </p>
+            <p class="mat-body-1 text-subinfo-small">
+              {{'scout24.Main.Modal.SubInfo.Format' | translate}}
+            </p>
+          </div>
+        </div>
+        <div fxLayout="row" class="mt-30">
+          <div fxFlex="50" fxLayout="column">
+            <div class="price-wrapper">
+              <img class="price-layer-2D" src="assets/img/order_dialog__stroke.png" alt="">
+              <div class="price-wrapper-2D">
+                {{ floorPlanData?.priceData.price }}
+                <ng-container *ngIf="userContract.currency === 'EUR'">€</ng-container>
+                <ng-container *ngIf="userContract.currency === 'USD'">$</ng-container>
+              </div>
+            </div>
+
+
+            <div class="price-wrapper-subtext">
+              {{'scout24.Main.Modal.SubInfo.WithTax' | translate}}
+            </div>
+          </div>
+          <div fxFlex="50" fxLayout="row-reverse">
+            <button mat-flat-button color="primary" class="flat-button-big-update choose-button" disableRipple (click)="proceedToOrderInfo(floorPlanData)">
+              {{'scout24.Action.Choose' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+
+  <div fxLayout="row" fxFlex="1 1 auto" class="mt-10">
+    <div class="img-wrapper">
+      <img class="picture-3D" src="assets/img/order_dialog__dollhouse.png" alt="">
+      <img class="overlay-2D" src="assets/img/order_dialog__including.png" alt="">
+    </div>
+    <div fxFlex="1 1 auto" class="ml-20">
+      <h3 class="mat-h2 ">
+        {{'scout24.Main.Modal.HeadlinePayment3D' | translate}}
+      </h3>
+      <h4 class="mat-h4 text-info-2D mb-10 ">
+        {{'scout24.Main.Modal.InfoTextPayment3D' | translate}}
+        <!-- <button mat-button color="accent" disableRipple class="basic-button more-infos-button">
+          <i class="material-icons marker-icon ">chevron_right</i>
+          {{'scout24.Side.LogoLearnMore' | translate}}
+        </button> -->
+        <span>
+          <a [href]="exampleDHLink" target="_blank" class="dollhouse-link">
+
+            {{'scout24.Main.Modal.Example.Dollhouse' | translate}}
+          </a>
+        </span>
+      </h4>
+
+
+      <div fxLayout="row">
+        <i class="material-icons check-icon">done</i>
+        <div fxLayout="column" class="ml-5">
+          <p class="mat-body-1 text-subinfo-big">
+            {{'scout24.Main.Modal.SubInfo.Done' | translate}}
+          </p>
+          <p class="mat-body-1 text-subinfo-small">
+            {{'scout24.Main.Modal.SubInfo.Email' | translate}}
+          </p>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <i class="material-icons check-icon">done</i>
+        <div fxLayout="column" class="ml-5">
+          <p class="mat-body-1 text-subinfo-big">
+            {{'scout24.Main.Modal.SubInfo.Integration' | translate}}
+          </p>
+          <p class="mat-body-1 text-subinfo-small">
+            {{'scout24.Main.Modal.SubInfo.ConfirmFloorplan' | translate}}
+          </p>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <i class="material-icons check-icon">done</i>
+        <div fxLayout="column" class="ml-5">
+          <p class="mat-body-1 text-subinfo-big">
+            {{'scout24.Main.Modal.SubInfo.Inclusive2D' | translate}}
+          </p>
+          <p class="mat-body-1 text-subinfo-small">
+            {{'scout24.Main.Modal.SubInfo.Format3D' | translate}}
+          </p>
+        </div>
+      </div>
+
+      <div fxLayout="row" class="mt-30">
+        <div fxFlex="50" fxLayout="column">
+
+          <div class="price-wrapper">
+            <img class="price-layer-2D" src="assets/img/order_dialog__stroke.png" alt="">
+            <div class="price-wrapper-2D">
+              <!-- {{(floorPlanData?.priceData.price | number:'2.2-6') + (floorPlanData?.priceData.price | number:'2.2-6')}} -->
+              {{ (calcDollHouseSum(dollhouseData?.priceData.price, floorPlanData?.priceData.price) | number:'2.2-6')}}
+              <ng-container *ngIf="userContract.currency === 'EUR'">€</ng-container>
+              <ng-container *ngIf="userContract.currency === 'USD'">$</ng-container>
+            </div>
+          </div>
+
+          <div class="price-wrapper-subtext">
+            {{'scout24.Main.Modal.SubInfo.WithTax' | translate}}
+          </div>
+        </div>
+        <div fxFlex="50" fxLayout="row-reverse">
+          <button mat-flat-button color="primary" class="flat-button-big-update choose-button" disableRipple (click)="proceedToOrderInfo(dollhouseData)">
+            {{'scout24.Action.Choose' | translate}}
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<scout24-container-spinner [loading]="!initDone" [backgroundColor]="'white'"></scout24-container-spinner>
+<scout24-container-spinner [loading]="orderInProgress"></scout24-container-spinner>

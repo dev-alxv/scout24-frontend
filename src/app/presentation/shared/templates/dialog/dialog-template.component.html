@@ -1,0 +1,42 @@
+<div class="fixActionRow">
+<div fxLayout="row" >
+  <div fxFlex="80" fxLayout="row" >
+    <h4 mat-dialog-title class="mat-h4">
+      {{data.title}}
+    </h4>
+  </div>
+  <div fxFlex="20" fxLayout="row-reverse" *ngIf="data.closeButton">
+    <button class="close-btn" mat-dialog-close><i   class="material-icons">clear</i></button>
+  </div>
+</div>
+<div class="spacer"></div>
+<mat-dialog-content fxLayout="row" fxLayoutAlign="center">
+  <ng-container *ngComponentOutlet="data.component"></ng-container>
+</mat-dialog-content>
+<mat-dialog-actions >
+  <div fxLayout="row" fxFlex="100" class="mb-20" >
+    <div fxFlex="50" fxLayout="row" >
+      <button mat-raised-button class="raised-button-big" disableRipple *ngIf="data.cancelButton">
+        {{'scout24.Action.Cancel' | translate}}
+      </button>
+    </div>
+    <div fxFlex="50" fxLayout="row-reverse">
+      <div class="ml-20">
+        <button mat-flat-button color="primary" class="flat-button-big" disableRipple *ngIf="data.actionButtonTwo">
+         {{data.actionButtonTwo}}
+        </button>
+      </div>
+      <button mat-raised-button class="raised-button-big-black " disableRipple *ngIf="data.actionButtonOne">
+        {{data.actionButtonOne}}
+      </button>
+    </div>
+  </div>
+</mat-dialog-actions>
+</div>
+
+
+
+
+
+
+

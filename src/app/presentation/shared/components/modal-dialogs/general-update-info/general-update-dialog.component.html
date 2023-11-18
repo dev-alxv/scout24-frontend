@@ -1,0 +1,38 @@
+<div fxLayout="column">
+
+  <div fxLayout="column" fxFlex="1 1 auto" class="wrapper-update">
+
+    <h1 class="custom-headline">
+      {{'scout24.Main.Modal.News.Headline' | translate}}
+    </h1>
+
+    <div class="wrapper-rectangle">
+      <img class="img-rectangle" src="assets/img/Rectangle.png" alt="">
+    </div>
+
+    <div class="mt-30">
+      <p class="custom-text">
+        {{'scout24.Main.Modal.News.Text' | translate}}
+      </p>
+    </div>
+
+    <div class="wrapper-img mt-30">
+      <div class="wrapper-circle">
+        <img class="img-priority-line" src="assets/img/priority_line.png" alt="">
+        <img class="img-arrow" src="assets/img/short_arrow.png" alt="">
+        <img class="img-circle" src="assets/img/priority_circle.png" alt="">
+      </div>
+      <img *ngIf="currentDisplayLanguage == 'de'" class="img-update" src="assets/img/update-picture-ger.png" alt="">
+
+      <img *ngIf="currentDisplayLanguage == 'en'" class="img-update" src="assets/img/update-picture-eng.png" alt="">
+    </div>
+
+    <div class="dissmiss-wrapper">
+      <mat-checkbox #dismiss class="dissmiss-info" color="primary" (change)="dismissCheckboxState($event.checked)">{{'scout24.Main.Modal.News.Hint' |
+        translate}}
+      </mat-checkbox>
+    </div>
+
+  </div>
+
+</div>

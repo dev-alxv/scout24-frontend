@@ -1,0 +1,79 @@
+<header>
+
+  <ng-container *ngIf="(this.uiState$ | async) as uiState">
+
+    <div class="wrapper-header" fxLayout="row">
+      <div fxFlex="50" fxLayout="column" class="mt-20 inner-wrapper">
+        <div fxFlex="1 1 100%" fxLayout="row wrap">
+          <img src="assets/img/logo.svg" alt="" class="scout-logo-header ">
+          <p class="mat-body-1 ma-top-bottom ml-10 mr-5 pt-5">
+            {{'scout24.Header.Cooperation' | translate}}
+          </p>
+          <img src="assets/img/immoviewer_logo-01.svg" alt="" class="scout-logo-header ">
+        </div>
+
+
+      </div>
+      <div fxFlex="50" fxLayout="row-reverse" >
+        <div class="wrapper-language-control mt-20">
+          <button mat-button [matMenuTriggerFor]="accountSettings" disableRipple >
+            <div fxLayout="row">
+              <div class="wrapper-flag ">
+                <span *ngIf="currentDisplayLanguage === 'de' " class="flag-icon flag-icon-de flag-preview"></span>
+                <span *ngIf="currentDisplayLanguage === 'en' " class="flag-icon flag-icon-gb flag-preview"></span>
+              </div>
+              <div>
+                <div class="mat-small txt-a-l">
+
+                  {{'scout24.Header.language' | translate}}
+                </div>
+                <div fxLayout="row">
+                  <div class="mat-body-1">
+                    <span *ngIf="currentDisplayLanguage === 'de' ">Deutsch</span>
+                    <span *ngIf="currentDisplayLanguage === 'en' ">English</span>
+                  </div>
+                  <i class="material-icons control-header-icon">expand_more</i>
+                </div>
+            </div>
+            </div>
+          </button>
+          <mat-menu #accountSettings="matMenu">
+            <button mat-menu-item (click)="changeLanguage('de')" [disabled]="currentDisplayLanguage === 'de'">
+              <span class="flag-icon flag-icon-de"> </span>
+              {{'scout24.Header.german' | translate}}
+            </button>
+            <button mat-menu-item (click)="changeLanguage('en')" [disabled]="currentDisplayLanguage === 'en'">
+              <span class="flag-icon flag-icon-gb"></span>
+              {{'scout24.Header.english' | translate}}
+            </button>
+          </mat-menu>
+
+
+          <!-- // *******************
+      // Settings for Account is disabled for now till we know if we need it
+      // ******************* -->
+
+          <!-- <button mat-button [matMenuTriggerFor]="accountSettings" disableRipple >
+        <div fxLayout="column">
+          <div class="mat-small txt-a-l">Placeholder-name</div>
+          <div fxLayout="row">
+            <div class="mat-body-1"> Mein Konto</div>
+             <i class="material-icons control-header-icon">expand_more</i>
+           </div>
+        </div>
+      </button>
+      <mat-menu #accountSettings="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+      <i class="material-icons identity-header-icon mt-20 mr-5 ">perm_identity</i> -->
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+  </ng-container>
+</header>

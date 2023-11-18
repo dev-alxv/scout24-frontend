@@ -1,0 +1,47 @@
+<div fxLayout="column" class="embed-wrapper">
+
+  <div >
+
+    <mat-tab-group class="embed-control">
+        <mat-tab class="first-tab" label="{{'scout24.Main.Modal.EmbedTabPreview' | translate}}">
+          <p class="mat-body-1">
+            {{'scout24.Main.Modal.EmbedTitle' | translate}}
+          </p>
+            <pre class="embed-content">{{embedCodeJs}} </pre>
+        </mat-tab>
+        <mat-tab label="{{'scout24.Main.Modal.EmbedTabInteractive' | translate}}">
+          <p class="mat-body-1">
+            {{'scout24.Main.Modal.EmbedTitle' | translate}}
+          </p>
+            <pre class="embed-content">{{embedCodeiFrame}}</pre>
+        </mat-tab>
+    </mat-tab-group>
+  </div>
+
+<div fxLayout="row" fxFlex="1 1 100%" class="mt-50">
+  <div fxFlex="50" fxLayout="row">
+    <button (click)="cancel()" mat-raised-button class="raised-button-big" disableRipple>
+      {{'scout24.Action.Cancel' | translate}}
+    </button>
+  </div>
+  <div fxFlex="50" fxLayout="row-reverse">
+    <button (click)="copy()" mat-flat-button color="primary" class="flat-button-big-update ml-20" disableRipple>
+      <i *ngIf="embedTourLinkIsCopied"   class="material-icons test">done</i>
+     <span *ngIf="!embedTourLinkIsCopied">
+      {{'scout24.Main.Modal.ButtonCodeCopy' | translate}}
+     </span>
+     <span *ngIf="embedTourLinkIsCopied">
+      {{'scout24.Main.Modal.ButtonCodeCopied' | translate}}
+     </span>
+    </button>
+    <button  mat-raised-button class="raised-button-big-black-update " disableRipple>
+      <a [href]="exampleURL" class="see-example-link stlye-for-chrome" target="_blank">
+        {{'scout24.Main.Modal.ButtonSeeExample' | translate}}
+      </a>
+    </button>
+  </div>
+</div>
+
+</div>
+
+

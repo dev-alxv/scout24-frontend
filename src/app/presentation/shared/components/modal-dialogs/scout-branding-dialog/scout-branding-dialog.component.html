@@ -1,0 +1,125 @@
+<div fxLayout="column" class="embed-wrapper">
+  <div class="scout-branding-editor-wrapper">
+    <div fxLayout="row" fxFlex="1 1 100%">
+      <div fxLayout="row" fxFlex="40">
+        <div fxLayout="column" fxFlex="1 1 100%" class="mt-50 mr-40">
+          <div class="mb-20">
+            <div>
+              <h2 class="mat-h2">
+                {{'scout24.Main.Modal.Watermark' | translate}}
+              </h2>
+            </div>
+            <div>
+              <mat-form-field class="wrapper-input-field" appearance="outline" color="accent">
+                <mat-label *ngIf="watermarkInput.empty"> {{'scout24.Main.Modal.NoFileSelected' | translate}}</mat-label>
+                <mat-label *ngIf="!watermarkInput.empty">{{'scout24.Main.Modal.FileSelected' | translate}}</mat-label>
+                <ngx-mat-file-input #watermarkInput placeholder="Removable Input" [(ngModel)]="uploadedWatermarkImage">
+                </ngx-mat-file-input>
+                <mat-icon matSuffix *ngIf="watermarkInput.empty">folder</mat-icon>
+                <button mat-icon-button matSuffix *ngIf="!watermarkInput.empty" (click)="watermarkInput.clear($event)">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </mat-form-field>
+              <p class="mat-body-1 text-subinfo-small">
+                {{'scout24.Main.Modal.LogoSugguestion' | translate}}
+              </p>
+            </div>
+          </div>
+          <div class="mb-40">
+            <div>
+              <h2 class="mat-h2">
+                {{'scout24.Main.Modal.TripodCover' | translate}}
+              </h2>
+            </div>
+            <div>
+              <mat-form-field class="wrapper-input-field" appearance="outline" color="accent">
+                <mat-label *ngIf="tripodInput.empty"> {{'scout24.Main.Modal.NoFileSelected' | translate}}</mat-label>
+                <mat-label *ngIf="!tripodInput.empty">{{'scout24.Main.Modal.FileSelected' | translate}}</mat-label>
+                <ngx-mat-file-input #tripodInput placeholder="Removable Input" [(ngModel)]="uploadedTripodImage">
+                </ngx-mat-file-input>
+                <mat-icon matSuffix *ngIf="tripodInput.empty">folder</mat-icon>
+                <button mat-icon-button matSuffix *ngIf="!tripodInput.empty" (click)="tripodInput.clear($event)">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </mat-form-field>
+              <p class="mat-body-1 text-subinfo-small">
+                {{'scout24.Main.Modal.TripodSugguestion' | translate}}
+              </p>
+            </div>
+          </div>
+          <div class="mb-10">
+            <div>
+              <h2 class="mat-h2">
+                {{'scout24.Main.Modal.CompanyColor.Focuss' | translate}}
+
+              </h2>
+            </div>
+            <div fxLayout="row">
+              <div class="preview-color-box mr-10" [ngStyle]="{'background-color': colorCtrFooter.value?.rgba || colorCtrFooter.value}">
+
+              </div>
+              <mat-form-field>
+                <input matInput [ngxMatColorPicker]="pickerFooter" [formControl]="colorCtrFooter" value="Farbe auswählen">
+                <ngx-mat-color-toggle matSuffix [for]="pickerFooter"></ngx-mat-color-toggle>
+                <ngx-mat-color-picker #pickerFooter></ngx-mat-color-picker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="mb-10">
+            <div>
+              <h2 class="mat-h2">
+                {{'scout24.Main.Modal.CompanyColor.Footer' | translate}}
+              </h2>
+            </div>
+            <div fxLayout="row">
+              <div class="preview-color-box mr-10" [ngStyle]="{'background-color': colorCtrFocus.value?.rgba || colorCtrFocus.value}">
+
+              </div>
+              <mat-form-field>
+                <input matInput [ngxMatColorPicker]="pickerFocus" [formControl]="colorCtrFocus" value="Farbe auswählen">
+                <ngx-mat-color-toggle matSuffix [for]="pickerFocus"></ngx-mat-color-toggle>
+                <ngx-mat-color-picker #pickerFocus></ngx-mat-color-picker>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxFlex="60" class="mt-50">
+        <div fxLayout="column" fxFlex="1 1 100%">
+          <div>
+            <h2 class="mat-h2">
+              {{'scout24.Main.Modal.preview' | translate}}
+            </h2>
+          </div>
+          <div>
+            <div class="wrapper-preview">
+              <iframe height="100%" width="100%" [src]="playerIframeLink" title="Preview Player"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxFlex="1 1 100%" class="mt-10">
+    <div fxFlex="50" fxLayout="row">
+      <button (click)="cancel()" mat-raised-button class="raised-button-big" disableRipple>
+        {{'scout24.Action.Cancel' | translate}}
+      </button>
+    </div>
+
+    <div fxFlex="50" fxLayout="row-reverse">
+
+      <button (click)="save()" mat-flat-button color="primary" class="flat-button-big ml-10" [disabled]="!saveButtonEnabled" disableRipple>
+        {{'scout24.Action.Save' | translate}}
+      </button>
+      <button (click)="previewStyles()" mat-flat-button class="raised-button-big-black" disableRipple>
+        {{'scout24.Action.preview' | translate}}
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<scout24-container-spinner [loading]="stylesSetInProgress"></scout24-container-spinner>
+<scout24-container-spinner [loading]="previewSetInProgress"></scout24-container-spinner>

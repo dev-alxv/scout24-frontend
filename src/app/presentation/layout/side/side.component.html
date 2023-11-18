@@ -1,0 +1,48 @@
+<div class="side-color side-first-item">
+  <h2 class="mat-h2 mb-5">
+    {{'scout24.Side.Search' | translate}}
+  </h2>
+  <mat-form-field class="search-form" color="accent">
+    <i class="material-icons marker-icon example-button-row">search</i>
+    <mat-label>
+      {{'scout24.Side.SearchPlaceholder' | translate}}
+    </mat-label>
+    <input matInput type="text" [(ngModel)]="searchInputText" (keydown)="keyDownFunction($event)">
+    <button mat-button *ngIf="searchInputText" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchInput()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <!-- <div>
+        <button mat-raised-button class="raised-button-big" [disabled]="!searchInputText" disableRipple (click)="submitSearch()">Search</button>
+      </div> -->
+</div>
+<div class="mb-20 side-color">
+  <p class="mat-body-1 mb-10">
+    {{'scout24.Side.Paginator' | translate}}
+  </p>
+
+  <div class="wrapper-scout-tab">
+    <div class="select-container">
+      <div class="select-input-wrapper">
+        <select #tourPerPageSelect class="select" [(value)]="toursPerPageSelected" (change)="changeToursPerPage(tourPerPageSelect.value)">
+          <option [value]="'10'">10</option>
+          <option [value]="'20'">20</option>
+          <option [value]="'30'">30</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div fxLayout="column" class="side-color">
+  <h2 class="mat-h2 mb-20">
+    {{'scout24.Side.LogoTitle' | translate}}
+  </h2>
+  <div class="wrapper-ci-change">
+    <button mat-raised-button (click)="scoutBrandingEditor()" class="raised-button-small-update mb-10" disableRipple>
+      {{'scout24.Side.LogoButton' | translate}}
+    </button>
+  </div>
+
+</div>

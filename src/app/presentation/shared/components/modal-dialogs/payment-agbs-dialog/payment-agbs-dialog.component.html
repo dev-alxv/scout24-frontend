@@ -1,0 +1,134 @@
+<div fxLayout="column">
+
+
+
+  <div fxLayout="row" fxFlex="1 1 auto">
+    <div fxFlex="1 1 auto" class="ml-20" fxLayout="column">
+      <h3 class="mat-h2 ">
+        {{'scout24.Main.Modal.Agbs.Information' | translate}}
+      </h3>
+      <h4 class="mat-h4  mb-10 ">
+        {{'scout24.Main.Modal.Agbs.Cooperation' | translate}}
+      </h4>
+      <h4 class="mat-h4  mb-20 ">
+        {{'scout24.Main.Modal.Agbs.After' | translate}}
+      </h4>
+      <mat-divider></mat-divider>
+      <div fxFlex="1 1 auto" class="mt-20 mb-20" fxLayout="row">
+        <div fxFlex="80" fxLayout="column">
+          <h3 class="mat-h2 ">
+            {{'scout24.Main.Modal.Agbs.Chosen.Product' | translate}}
+          </h3>
+          <span class="mat-body-2">
+            <ng-container *ngIf="productToOrder.productType === 'FLOORPLAN'">2D-Grundriss aus 360°-Bildern</ng-container>
+            <ng-container *ngIf="productToOrder.productType === 'DOLLHOUSE'">Interaktives 3D-Modell (inkl. 2D-Grundriss)</ng-container>
+          </span>
+          <h4 class="mat-h4 mb-10 ">
+            <br />
+            <ng-container *ngIf="productToOrder.productType === 'FLOORPLAN'">
+              {{'scout24.Main.Modal.Agbs.2D' | translate}}
+            </ng-container>
+            <ng-container *ngIf="productToOrder.productType === 'DOLLHOUSE'">
+              {{'scout24.Main.Modal.Agbs.Dollhouse' | translate}}
+            </ng-container>
+          </h4>
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div fxFlex="20" fxLayout="column" class="wrapper-summary-payment">
+          <h3 class="mat-h2 ">
+            {{'scout24.Main.Modal.Agbs.Total.Price' | translate}}
+          </h3>
+          <h4 class="mat-h4 text-info-2D mb-10 ">
+            <ng-container *ngIf="productToOrder.productType === 'FLOORPLAN'">
+              {{ floorPlanData?.priceData.price }}
+              <ng-container *ngIf="userContract.currency === 'EUR'">€</ng-container>
+              <ng-container *ngIf="userContract.currency === 'USD'">$</ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="productToOrder.productType === 'DOLLHOUSE'">
+              {{ (calcDollHouseSum(dollhouseData?.priceData.price, floorPlanData?.priceData.price) | number:'2.2-6')}}
+              <ng-container *ngIf="userContract.currency === 'EUR'">€</ng-container>
+              <ng-container *ngIf="userContract.currency === 'USD'">$</ng-container>
+            </ng-container>
+          </h4>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div fxFlex="1 1 auto" class="mt-20 mb-20" fxLayout="row">
+        <div fxFlex="80" fxLayout="column" class="wrapper-summary-payment mr-10">
+          <span class="mat-body-1 ">
+            {{'scout24.Main.Modal.Agbs.Subtotal' | translate}}
+          </span>
+          <span class="mat-body-1">
+            {{'scout24.Main.Modal.Agbs.Vat' | translate}}
+          </span>
+          <span class="mat-body-2 mt-10">
+            {{'scout24.Main.Modal.Agbs.Total' | translate}}
+          </span>
+        </div>
+        <mat-divider [vertical]="true"></mat-divider>
+        <div fxFlex="20" fxLayout="column" class="wrapper-summary-payment">
+          <span class="mat-body-1 ">
+            <ng-container *ngIf="productToOrder.productType === 'FLOORPLAN'">
+              {{ floorPlanData?.priceData.price }}
+              <ng-container *ngIf="userContract.currency === 'EUR'">€</ng-container>
+              <ng-container *ngIf="userContract.currency === 'USD'">$</ng-container>
+            </ng-container>
+
+            <ng-container *ngIf="productToOrder.productType === 'DOLLHOUSE'">
+              {{ (calcDollHouseSum(dollhouseData?.priceData.price, floorPlanData?.priceData.price) | number:'2.2-6')}}
+              <ng-container *ngIf="userContract.currency === 'EUR'">€</ng-container>
+              <ng-container *ngIf="userContract.currency === 'USD'">$</ng-container>
+            </ng-container>
+          </span>
+          <span class="mat-body-1">
+            {{ vatTax | number:'1.1-2' }}
+            <ng-container *ngIf="userContract.currency === 'EUR'">€</ng-container>
+            <ng-container *ngIf="userContract.currency === 'USD'">$</ng-container>
+          </span>
+          <div fxFlex="50" fxLayout="column">
+            <div class="price-wrapper">
+              <img class="price-layer-2D" src="assets/img/order_dialog_immoviewer_blue.png" alt="">
+              <div class="price-wrapper-2D">
+                {{ bruttoSum }}
+                <ng-container *ngIf="userContract.currency === 'EUR'">€</ng-container>
+                <ng-container *ngIf="userContract.currency === 'USD'">$</ng-container>
+              </div>
+            </div>
+            <div class="price-wrapper-subtext">
+              {{'scout24.Main.Modal.Agbs.Plus.Vat' | translate}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div fxLayout="row" class="agbs-wrapper">
+        <div fxFlex="80" fxLayout="row">
+          <h4 class="mat-h4 mb-10 ">
+            {{'scout24.Main.Modal.Agbs.The' | translate}}
+            <span>
+              <a [href]="agbLink" target="_blank" class="agbs-link">
+                {{'scout24.Footer.Terms' | translate}}
+              </a>
+            </span>
+            {{'scout24.Main.Modal.Agbs.and' | translate}}
+            <span>
+              <a [href]="dataProtectionLink" target="_blank" class="agbs-link">
+                {{'scout24.Footer.PrivacyPolicy' | translate}}
+              </a>
+            </span>
+            {{'scout24.Main.Modal.Agbs.Noticed' | translate}}
+          </h4>
+        </div>
+        <div fxFlex="20" fxLayout="row" class="wrapper-summary-payment">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+<scout24-container-spinner [loading]="orderInProgress"></scout24-container-spinner>

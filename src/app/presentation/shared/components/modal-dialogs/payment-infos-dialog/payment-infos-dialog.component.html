@@ -1,0 +1,67 @@
+<div fxLayout="column">
+
+  <div fxLayout="row" fxFlex="1 1 auto">
+    <!-- <div  class="">
+      <img  class="timeline" src="assets/img/timeline.svg" alt="">
+    </div> -->
+    <div fxFlex="1 1 auto" class="ml-20">
+      <div>
+
+        <h4 class="mat-h4 text-info-time mb-10 ">
+
+          <ng-container *ngIf="orderedProductType === 'FLOORPLAN'">
+            {{'scout24.Main.Modal.Update.Sucuess.Plan' | translate}}
+          </ng-container>
+          <ng-container *ngIf="orderedProductType === 'DOLLHOUSE'">
+            {{'scout24.Main.Modal.Update.Sucuess.Dollhouse' | translate}}
+          </ng-container>
+          <!-- {{'scout24.Main.Modal.After48H' | translate}} -->
+
+        </h4>
+
+      </div>
+      <div>
+        <div>
+
+          <h4 class="mat-h4  text-info-time mb-10 ">
+            <ng-container *ngIf="orderedProductType === 'FLOORPLAN'">
+              {{'scout24.Main.Modal.Update.Hours.Button.PlanPlan' | translate}}
+            </ng-container>
+            <ng-container *ngIf="orderedProductType === 'DOLLHOUSE'">
+              {{'scout24.Main.Modal.Update.Hours.Button.Dollhouse' | translate}}
+            </ng-container>
+            <!-- {{'scout24.Main.Modal.CheckButton' | translate}} -->
+          </h4>
+
+          <h4 class="mat-h4  text-info-time mb-10 ">
+            <ng-container *ngIf="orderedProductType === 'FLOORPLAN'">
+              {{'scout24.Main.Modal.Update.Button.Plan' | translate}}
+            </ng-container>
+            <ng-container *ngIf="orderedProductType === 'DOLLHOUSE'">
+              {{'scout24.Main.Modal.Update.Button.Dollhouse' | translate}}
+            </ng-container>
+            <!-- {{'scout24.Main.Modal.NextSteps' | translate}} -->
+          </h4>
+
+        </div>
+        <!-- <div>
+          <img *ngIf="currentDisplayLanguage == 'de' && true"  class="" src="assets/img/confirm_floor_plan_ger.png" alt="">
+          <img *ngIf="currentDisplayLanguage == 'de' && false"  class="" src="assets/img/confirm_dollhouse_ger.png" alt="">
+
+          <img *ngIf="currentDisplayLanguage == 'en' && true" class="" src="assets/img/confirm_floor_plan_eng.png" alt="">
+          <img *ngIf="currentDisplayLanguage == 'en' && false" class="" src="assets/img/confirm_dollhouse_eng.png" alt="">
+        </div> -->
+      </div>
+      <div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+</div>

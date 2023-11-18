@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - '10'
+before_install:
+  - 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
+  - 'unzip awscliv2.zip'
+  - 'sudo ./aws/install'
+cache:
+  directories:
+    - ./node_modules
+install:
+  - npm ci
+script: './ci/build.sh;'
+deploy:
+  - provider: script
+    script: bash ci/deploy.sh ACCESS_KEY=$IS24_SANDBOX_AWS_ACCESS_KEY_ID ACCESS_SECRET=$IS24_SANDBOX_AWS_SECRET_ACCESS_KEY BUCKET="immobilienscout24-sandbox-sources" HOOK=is24-sandbox-scout24-frontend
+    skip_cleanup: true
+    on:
+      sandbox
+  - provider: script
+    script: bash ci/deploy.sh ACCESS_KEY=$IS24_PRODUCTION_AWS_ACCESS_KEY_ID ACCESS_SECRET=$IS24_PRODUCTION_AWS_SECRET_ACCESS_KEY BUCKET="immobilienscout24-sources"
+    skip_cleanup: true
+    on:
+      production
